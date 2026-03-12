@@ -4,9 +4,9 @@ function TimelineItem({ title, subtitle, period, bullets }) {
   return (
     <div className="relative pl-8 pb-10 last:pb-0">
       {/* Line */}
-      <div className="absolute top-2 left-[7px] -bottom-2 w-px bg-white/20 last:hidden light:bg-black/20" />
+      <div className="absolute top-2 left-[7px] -bottom-2 w-px bg-white/20 last:hidden" />
       {/* Dot */}
-      <div className="absolute top-2 left-0 h-3.5 w-3.5 rounded-full border-2 border-primary-400 bg-surface-dark light:bg-surface-light" />
+      <div className="absolute top-2 left-0 h-3.5 w-3.5 rounded-full border-2 border-primary-400 bg-surface-dark" />
 
       <h3 className="font-semibold leading-snug">{title}</h3>
       <p className="text-sm opacity-70">
@@ -66,7 +66,7 @@ export default function Resume() {
                 {items.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-white/15 px-3 py-1 text-sm transition-colors hover:border-primary-400 hover:text-primary-400 light:border-black/15"
+                    className="rounded-full border border-white/15 px-3 py-1 text-sm transition-colors hover:border-primary-400 hover:text-primary-400"
                   >
                     {skill}
                   </span>

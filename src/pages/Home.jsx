@@ -75,7 +75,7 @@ export default function Home() {
               <button
                 onClick={() => setFlipped(true)}
                 aria-label="Flip card to show about section"
-                className="rounded-full border border-white/20 light:border-black/20 px-6 py-2.5 font-medium transition-colors hover:bg-white/10 light:hover:bg-black/10"
+                className="rounded-full border border-white/20 px-6 py-2.5 font-medium transition-colors hover:bg-white/10"
               >
                 About me &rarr;
               </button>
@@ -113,7 +113,7 @@ export default function Home() {
             <button
               onClick={() => setFlipped(false)}
               aria-label="Flip card back to hero section"
-              className="mt-6 rounded-full border border-white/20 light:border-black/20 px-6 py-2.5 font-medium transition-colors hover:bg-white/10 light:hover:bg-black/10"
+              className="mt-6 rounded-full border border-white/20 px-6 py-2.5 font-medium transition-colors hover:bg-white/10"
             >
               &larr; Flip back
             </button>

@@ -12,7 +12,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 py-8 light:border-black/10">
+    <footer className="border-t border-white/10 py-8">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6">
         <div className="flex gap-5">
           {socials.map((social) => (

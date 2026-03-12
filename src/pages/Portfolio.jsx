@@ -16,10 +16,10 @@ const LANG_COLORS = {
 
 function SkeletonCard() {
   return (
-    <div className="animate-pulse rounded-lg border border-white/10 p-5 light:border-black/10">
-      <div className="mb-3 h-5 w-2/3 rounded bg-white/10 light:bg-black/10" />
-      <div className="mb-2 h-4 w-full rounded bg-white/5 light:bg-black/5" />
-      <div className="h-4 w-1/2 rounded bg-white/5 light:bg-black/5" />
+    <div className="animate-pulse rounded-lg border border-white/10 p-5">
+      <div className="mb-3 h-5 w-2/3 rounded bg-white/10" />
+      <div className="mb-2 h-4 w-full rounded bg-white/5" />
+      <div className="h-4 w-1/2 rounded bg-white/5" />
     </div>
   );
 }
@@ -115,7 +115,7 @@ export default function Portfolio() {
                 className={`rounded-full border px-3 py-1 text-sm transition-colors ${
                   filter === lang
                     ? "border-primary-400 bg-primary-400/15 text-primary-400"
-                    : "border-white/15 hover:border-primary-400 light:border-black/15"
+                    : "border-white/15 hover:border-primary-400"
                 }`}
               >
                 {lang}
@@ -133,7 +133,7 @@ export default function Portfolio() {
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-lg border border-white/10 p-5 transition-shadow hover:shadow-lg hover:shadow-primary-500/5 light:border-black/10"
+                  className="group rounded-lg border border-white/10 p-5 transition-shadow hover:shadow-lg hover:shadow-primary-500/5"
                 >
                   <h3 className="mb-1 font-semibold group-hover:text-primary-400 transition-colors">
                     {repo.name}
