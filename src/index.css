@@ -7,6 +7,7 @@
   --color-accent-from: #3b82f6;
   --color-accent-to: #a855f7;
   --color-surface-dark: #242424;
+  --color-surface-darker: #222222;
   --color-surface-light: #ffffff;
   --color-text-dark: rgba(255, 255, 255, 0.87);
   --color-text-light: #213547;
@@ -22,6 +23,22 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+
+@utility preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@utility backface-hidden {
+  backface-visibility: hidden;
+}
+
+@utility rotate-y-180 {
+  transform: rotateY(180deg);
 }
 
 body {
