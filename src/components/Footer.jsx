@@ -1,15 +1,18 @@
-import { FaGithub, FaLinkedin, FaStackOverflow, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const socials = [
   { href: "https://github.com/gm1357", icon: FaGithub, label: "GitHub" },
-  { href: "https://www.linkedin.com/in/gabriel-machado-br/", icon: FaLinkedin, label: "LinkedIn" },
-  { href: "https://stackoverflow.com/users/9012424/gmachado", icon: FaStackOverflow, label: "Stack Overflow" },
+  {
+    href: "https://www.linkedin.com/in/gabriel-machado-br/",
+    icon: FaLinkedin,
+    label: "LinkedIn",
+  },
   { href: "mailto:g_machado1@hotmail.com", icon: FaEnvelope, label: "Email" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 py-8 light:border-black/10">
+    <footer className="border-t border-white/10 py-8">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6">
         <div className="flex gap-5">
           {socials.map((social) => (

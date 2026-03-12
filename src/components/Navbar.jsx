@@ -13,7 +13,7 @@ export default function Navbar() {
   const { pathname } = useLocation();
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-surface-dark/80 backdrop-blur-sm dark:border-white/10 light:border-black/10 light:bg-surface-light/80">
+    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-surface-darker backdrop-blur-sm">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3">
         <Link to="/" className="text-lg font-semibold tracking-tight">
           Gabriel Machado
