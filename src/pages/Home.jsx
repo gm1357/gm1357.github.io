@@ -31,7 +31,7 @@ export default function Home() {
     <section className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-6">
       <div className="perspective-1000 w-full max-w-2xl">
         <div
-          className={`preserve-3d relative h-[28rem] sm:h-[26rem] motion-safe:transition-transform motion-safe:duration-700 ${flipped ? "rotate-y-180" : ""}`}
+          className={`preserve-3d relative h-[34rem] sm:h-[26rem] motion-safe:transition-transform motion-safe:duration-700 ${flipped ? "rotate-y-180" : ""}`}
         >
           {/* FRONT */}
           <div
