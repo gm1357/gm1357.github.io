@@ -1,10 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaStackOverflow,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const socials = [
   { href: "https://github.com/gm1357", icon: FaGithub, label: "GitHub" },
@@ -12,11 +7,6 @@ const socials = [
     href: "https://www.linkedin.com/in/gabriel-machado-br/",
     icon: FaLinkedin,
     label: "LinkedIn",
-  },
-  {
-    href: "https://stackoverflow.com/users/9012424/gmachado",
-    icon: FaStackOverflow,
-    label: "Stack Overflow",
   },
   { href: "mailto:g_machado1@hotmail.com", icon: FaEnvelope, label: "Email" },
 ];
