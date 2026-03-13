@@ -1,16 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-
-const socials = [
-  { href: "https://github.com/gm1357", icon: FaGithub, label: "GitHub" },
-  {
-    href: "https://www.linkedin.com/in/gabriel-machado-br/",
-    icon: FaLinkedin,
-    label: "LinkedIn",
-  },
-  { href: "mailto:g_machado1@hotmail.com", icon: FaEnvelope, label: "Email" },
-];
+import { socials } from "../data/socials";
 
 const cardStyle = "rounded-2xl border border-white/10 bg-surface-darker p-8";
 
