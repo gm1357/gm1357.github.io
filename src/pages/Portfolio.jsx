@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaStar, FaCodeBranch } from "react-icons/fa";
+import projects from "../data/projects";
+import ProjectModal from "../components/ProjectModal";
 
 const LANG_COLORS = {
   JavaScript: "#f1e05a",
@@ -29,6 +31,7 @@ export default function Portfolio() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState("All");
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const fetchRepos = () => {
     setLoading(true);
@@ -41,7 +44,11 @@ export default function Portfolio() {
       .then((data) => {
         const sorted = data
           .filter((r) => !r.fork)
-          .sort((a, b) => b.stargazers_count - a.stargazers_count || new Date(b.updated_at) - new Date(a.updated_at));
+          .sort(
+            (a, b) =>
+              b.stargazers_count - a.stargazers_count ||
+              new Date(b.updated_at) - new Date(a.updated_at),
+          );
         setRepos(sorted);
       })
       .catch((err) => setError(err.message))
@@ -59,7 +66,11 @@ export default function Portfolio() {
         if (ignore) return;
         const sorted = data
           .filter((r) => !r.fork)
-          .sort((a, b) => b.stargazers_count - a.stargazers_count || new Date(b.updated_at) - new Date(a.updated_at));
+          .sort(
+            (a, b) =>
+              b.stargazers_count - a.stargazers_count ||
+              new Date(b.updated_at) - new Date(a.updated_at),
+          );
         setRepos(sorted);
       })
       .catch((err) => {
@@ -68,18 +79,64 @@ export default function Portfolio() {
       .finally(() => {
         if (!ignore) setLoading(false);
       });
-    return () => { ignore = true; };
+    return () => {
+      ignore = true;
+    };
   }, []);
 
-  const languages = ["All", ...new Set(repos.map((r) => r.language).filter(Boolean))];
-  const filtered = filter === "All" ? repos : repos.filter((r) => r.language === filter);
+  const languages = [
+    "All",
+    ...new Set(repos.map((r) => r.language).filter(Boolean)),
+  ];
+  const filtered =
+    filter === "All" ? repos : repos.filter((r) => r.language === filter);
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-16 animate-fade-in">
       <h1 className="mb-8 text-4xl font-bold">Portfolio</h1>
       <p className="mb-8 opacity-80">
-        Open-source projects pulled live from GitHub.
+        A selection of featured work and open-source projects.
       </p>
+
+      {/* Featured Projects */}
+      {projects.length > 0 && (
+        <section className="mb-12">
+          <h2 className="mb-6 text-2xl font-semibold">Featured Projects</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="group rounded-lg border border-white/10 p-5 transition-shadow hover:shadow-lg hover:shadow-primary-500/5"
+              >
+                {project.coverImage && (
+                  <img
+                    src={project.coverImage}
+                    alt={project.title}
+                    className="mb-3 w-full rounded-md object-cover h-48"
+                  />
+                )}
+                <h3 className="mb-1 font-semibold group-hover:text-primary-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="mb-3 text-sm opacity-70 line-clamp-2">
+                  {project.shortDescription}
+                </p>
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="rounded-full border border-primary-400 px-3 py-1 text-sm text-primary-400 transition-colors hover:bg-primary-400/15 cursor-pointer"
+                >
+                  Know more
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* GitHub Repositories */}
+      {projects.length > 0 && (
+        <h2 className="mb-6 text-2xl font-semibold">GitHub Repositories</h2>
+      )}
 
       {/* Error state */}
       {error && (
@@ -124,7 +181,9 @@ export default function Portfolio() {
           </div>
 
           {filtered.length === 0 ? (
-            <p className="py-12 text-center opacity-60">No projects found for &ldquo;{filter}&rdquo;.</p>
+            <p className="py-12 text-center opacity-60">
+              No projects found for &ldquo;{filter}&rdquo;.
+            </p>
           ) : (
             <div className="grid gap-4 sm:grid-cols-2">
               {filtered.map((repo) => (
@@ -139,14 +198,19 @@ export default function Portfolio() {
                     {repo.name}
                   </h3>
                   {repo.description && (
-                    <p className="mb-3 text-sm opacity-70 line-clamp-2">{repo.description}</p>
+                    <p className="mb-3 text-sm opacity-70 line-clamp-2">
+                      {repo.description}
+                    </p>
                   )}
                   <div className="flex items-center gap-4 text-xs opacity-60">
                     {repo.language && (
                       <span className="flex items-center gap-1">
                         <span
                           className="inline-block h-2.5 w-2.5 rounded-full"
-                          style={{ backgroundColor: LANG_COLORS[repo.language] || "#ccc" }}
+                          style={{
+                            backgroundColor:
+                              LANG_COLORS[repo.language] || "#ccc",
+                          }}
                         />
                         {repo.language}
                       </span>
@@ -168,6 +232,11 @@ export default function Portfolio() {
           )}
         </>
       )}
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </div>
   );
 }
