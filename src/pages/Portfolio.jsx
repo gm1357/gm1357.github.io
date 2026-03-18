@@ -106,7 +106,7 @@ export default function Portfolio() {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="group rounded-lg border border-white/10 p-5 transition-shadow hover:shadow-lg hover:shadow-primary-500/5"
+                className="group rounded-lg border border-white/10 p-5 transition-shadow hover:shadow-lg hover:shadow-primary-500/5 flex flex-col justify-between"
               >
                 {project.coverImage && (
                   <img
@@ -115,18 +115,20 @@ export default function Portfolio() {
                     className="mb-3 w-full rounded-md object-cover h-48"
                   />
                 )}
-                <h3 className="mb-1 font-semibold group-hover:text-primary-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="mb-3 text-sm opacity-70 line-clamp-2">
-                  {project.shortDescription}
-                </p>
-                <button
-                  onClick={() => setSelectedProject(project)}
-                  className="rounded-full border border-primary-400 px-3 py-1 text-sm text-primary-400 transition-colors hover:bg-primary-400/15 cursor-pointer"
-                >
-                  Know more
-                </button>
+                <div className="flex flex-col justify-between items-start">
+                  <h3 className="mb-1 font-semibold group-hover:text-primary-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="mb-3 text-sm opacity-70 line-clamp-2">
+                    {project.shortDescription}
+                  </p>
+                  <button
+                    onClick={() => setSelectedProject(project)}
+                    className="rounded-full border border-primary-400 px-3 py-1 text-sm text-primary-400 transition-colors hover:bg-primary-400/15 cursor-pointer"
+                  >
+                    Know more
+                  </button>
+                </div>
               </div>
             ))}
           </div>
