@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaStar, FaCodeBranch } from "react-icons/fa";
+import { FaStar, FaCodeBranch, FaGithub } from "react-icons/fa";
 import projects from "../data/projects";
 import ProjectModal from "../components/ProjectModal";
 
@@ -122,12 +122,26 @@ export default function Portfolio() {
                   <p className="mb-3 text-sm opacity-70 line-clamp-2">
                     {project.shortDescription}
                   </p>
-                  <button
-                    onClick={() => setSelectedProject(project)}
-                    className="rounded-full border border-primary-400 px-3 py-1 text-sm text-primary-400 transition-colors hover:bg-primary-400/15 cursor-pointer"
-                  >
-                    Know more
-                  </button>
+                  <div className="flex justify-between w-full">
+                    <button
+                      onClick={() => setSelectedProject(project)}
+                      className="rounded-full border border-primary-400 px-3 py-1 text-sm text-primary-400 transition-colors hover:bg-primary-400/15 cursor-pointer"
+                    >
+                      Know more
+                    </button>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub Repository"
+                        title="GitHub Repository"
+                        className="rounded-full px-3 py-1 text-sm text-primary-400 transition-colors hover:bg-primary-400/15 cursor-pointer w-10 h-10 flex items-center justify-center"
+                      >
+                        <FaGithub />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

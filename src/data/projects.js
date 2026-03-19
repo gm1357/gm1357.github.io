@@ -12,6 +12,7 @@ On the UI side, the project uses react-transition-group for smooth turn and chec
 `,
     coverImage: "https://github.com/gm1357/react-chess/raw/master/demo.png",
     link: "https://react-chess.vercel.app/",
+    github: "https://github.com/gm1357/react-chess",
   },
   {
     id: 2,
@@ -27,6 +28,7 @@ The API supports both individual and batch expense creation via CSV upload, with
 `,
     coverImage: "src/public/images/payment-splitter.png",
     link: "https://payment-splitter-api.vercel.app/api-json",
+    github: "https://github.com/gm1357/payment-splitter-api",
   },
   {
     id: 3,
@@ -42,6 +44,7 @@ On the architectural side, the project demonstrates several Angular best practic
 `,
     coverImage: "https://github.com/gm1357/Angular-Kanban/raw/master/demo.png",
     link: "https://angular-kanban.gmachado1.vercel.app/",
+    github: "https://github.com/gm1357/Angular-Kanban",
   },
   {
     id: 4,
@@ -59,6 +62,7 @@ The project enforces strict code quality through an automated pipeline. Husky pr
 `,
     coverImage: "src/public/images/bidding-system.png",
     link: "https://bidding-system-tau.vercel.app/",
+    github: "https://github.com/gm1357/bidding-system",
   },
   {
     id: 5,
@@ -76,6 +80,7 @@ Key technical highlights include proper interval and animation cleanup to preven
 `,
     coverImage:
       "https://github.com/gm1357/dynamic-impact-map-frontend/raw/main/screen-example.png",
+    github: "https://github.com/gm1357/dynamic-impact-map-backend",
   },
 ];
 
