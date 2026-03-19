@@ -26,7 +26,7 @@ The API is built with NestJS (Node.js/TypeScript) following a modular architectu
 
 The API supports both individual and batch expense creation via CSV upload, with full validation and transactional processing. Email notifications are sent to affected group members when expenses are added, powered by Nodemailer. File storage is integrated through AWS S3 and asynchronous processing through AWS SQS, with LocalStack used as a local mock for development. The codebase enforces soft deletes across all entities, request validation through class-validator with a global ValidationPipe, and auto-generated Swagger/OpenAPI documentation. The project includes both unit tests (with Jest mocks) and integration tests (using Pactum for HTTP assertions against a real database), with Docker Compose orchestrating PostgreSQL, a mail catcher, and LocalStack for a fully self-contained development environment.
 `,
-    coverImage: "src/public/images/payment-splitter.png",
+    coverImage: "/images/payment-splitter.png",
     link: "https://payment-splitter-api.vercel.app/api-json",
     github: "https://github.com/gm1357/payment-splitter-api",
   },
@@ -60,7 +60,7 @@ The application follows a clean separation between API routes and UI components.
 
 The project enforces strict code quality through an automated pipeline. Husky pre-commit hooks run ESLint, Prettier, and Prisma schema validation before every commit. Commits follow the Conventional Commits specification, enforced by CommitLint with an interactive Commitizen prompt. GitHub Actions runs three CI workflows on every pull request: linting (Prettier + ESLint + CommitLint), Prisma schema validation, and a full integration test suite. The testing strategy favors end-to-end integration tests that run against a live Next.js server and a real PostgreSQL database — no mocking — ensuring the entire stack works together as expected.
 `,
-    coverImage: "src/public/images/bidding-system.png",
+    coverImage: "/images/bidding-system.png",
     link: "https://bidding-system-tau.vercel.app/",
     github: "https://github.com/gm1357/bidding-system",
   },
