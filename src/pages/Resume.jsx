@@ -1,3 +1,4 @@
+import { HiDownload } from "react-icons/hi";
 import { workExperience, education, skills } from "../data/resume";
 
 function TimelineItem({ title, subtitle, period, bullets }) {
@@ -26,7 +27,25 @@ function TimelineItem({ title, subtitle, period, bullets }) {
 export default function Resume() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 animate-fade-in">
-      <h1 className="mb-12 text-4xl font-bold">Resume</h1>
+      <div className="mb-12 flex flex-wrap items-center justify-between gap-4">
+        <h1 className="text-4xl font-bold">Resume</h1>
+        <div className="flex gap-2">
+          <a
+            href="/docs/cv_en.pdf"
+            download
+            className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1 text-sm transition-colors hover:border-primary-400 hover:text-primary-400"
+          >
+            <HiDownload /> English
+          </a>
+          <a
+            href="/docs/cv_ptbr.pdf"
+            download
+            className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1 text-sm transition-colors hover:border-primary-400 hover:text-primary-400"
+          >
+            <HiDownload /> Português
+          </a>
+        </div>
+      </div>
 
       {/* Work Experience */}
       <section className="mb-14">
