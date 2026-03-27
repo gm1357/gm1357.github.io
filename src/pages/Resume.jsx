@@ -1,9 +1,20 @@
+import { motion } from "framer-motion";
 import { HiDownload } from "react-icons/hi";
 import { workExperience, education, skills } from "../data/resume";
 
+const staggerContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.2 } },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+};
+
 function TimelineItem({ title, subtitle, period, bullets }) {
   return (
-    <div className="relative pl-8 pb-10 last:pb-0">
+    <motion.div variants={fadeUp} className="relative pl-8 pb-10 last:pb-0">
       {/* Line */}
       <div className="absolute top-2 left-[7px] -bottom-2 w-px bg-white/20 last:hidden" />
       {/* Dot */}
@@ -20,13 +31,13 @@ function TimelineItem({ title, subtitle, period, bullets }) {
           ))}
         </ul>
       )}
-    </div>
+    </motion.div>
   );
 }
 
 export default function Resume() {
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16 animate-fade-in">
+    <div className="mx-auto max-w-3xl px-6 py-16">
       <div className="mb-12 flex flex-wrap items-center justify-between gap-4">
         <h1 className="text-4xl font-bold">Resume</h1>
         <div className="flex gap-2">
@@ -50,36 +61,45 @@ export default function Resume() {
       {/* Work Experience */}
       <section className="mb-14">
         <h2 className="mb-6 text-2xl font-bold">Work Experience</h2>
-        {workExperience.map((job, i) => (
-          <TimelineItem
-            key={i}
-            title={job.title}
-            subtitle={job.company}
-            period={job.period}
-            bullets={job.bullets}
-          />
-        ))}
+        <motion.div variants={staggerContainer} initial="hidden" animate="show">
+          {workExperience.map((job, i) => (
+            <TimelineItem
+              key={i}
+              title={job.title}
+              subtitle={job.company}
+              period={job.period}
+              bullets={job.bullets}
+            />
+          ))}
+        </motion.div>
       </section>
 
       {/* Education */}
       <section className="mb-14">
         <h2 className="mb-6 text-2xl font-bold">Education</h2>
-        {education.map((edu, i) => (
-          <TimelineItem
-            key={i}
-            title={edu.degree}
-            subtitle={edu.institution}
-            period={edu.period}
-          />
-        ))}
+        <motion.div variants={staggerContainer} initial="hidden" animate="show">
+          {education.map((edu, i) => (
+            <TimelineItem
+              key={i}
+              title={edu.degree}
+              subtitle={edu.institution}
+              period={edu.period}
+            />
+          ))}
+        </motion.div>
       </section>
 
       {/* Skills */}
       <section>
         <h2 className="mb-6 text-2xl font-bold">Skills</h2>
-        <div className="space-y-6">
+        <motion.div
+          className="space-y-6"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="show"
+        >
           {Object.entries(skills).map(([category, items]) => (
-            <div key={category}>
+            <motion.div key={category} variants={fadeUp}>
               <h3 className="mb-3 text-lg font-semibold">{category}</h3>
               <div className="flex flex-wrap gap-2">
                 {items.map((skill) => (
@@ -91,9 +111,9 @@ export default function Resume() {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
     </div>
   );

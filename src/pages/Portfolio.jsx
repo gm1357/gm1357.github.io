@@ -1,7 +1,22 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { FaStar, FaCodeBranch, FaGithub } from "react-icons/fa";
 import projects from "../data/projects";
 import ProjectModal from "../components/ProjectModal";
+
+const staggerContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
 const LANG_COLORS = {
   JavaScript: "#f1e05a",
@@ -92,7 +107,7 @@ export default function Portfolio() {
     filter === "All" ? repos : repos.filter((r) => r.language === filter);
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-16 animate-fade-in">
+    <div className="mx-auto max-w-5xl px-6 py-16">
       <h1 className="mb-8 text-4xl font-bold">Portfolio</h1>
       <p className="mb-8 opacity-80">
         A selection of featured work and open-source projects.
@@ -102,10 +117,16 @@ export default function Portfolio() {
       {projects.length > 0 && (
         <section className="mb-12">
           <h2 className="mb-6 text-2xl font-semibold">Featured Projects</h2>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <motion.div
+            className="grid gap-4 sm:grid-cols-2"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="show"
+          >
             {projects.map((project) => (
-              <div
+              <motion.div
                 key={project.id}
+                variants={cardVariants}
                 className="group rounded-lg border border-white/10 p-5 transition-shadow hover:shadow-lg hover:shadow-primary-500/5 flex flex-col justify-between"
               >
                 {project.coverImage && (
@@ -143,9 +164,9 @@ export default function Portfolio() {
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
       )}
 
@@ -203,8 +224,12 @@ export default function Portfolio() {
           ) : (
             <div className="grid gap-4 sm:grid-cols-2">
               {filtered.map((repo) => (
-                <a
+                <motion.a
                   key={repo.id}
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -242,7 +267,7 @@ export default function Portfolio() {
                       </span>
                     )}
                   </div>
-                </a>
+                </motion.a>
               ))}
             </div>
           )}
