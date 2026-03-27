@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { socials } from "../data/socials";
+import SocialLinks from "../components/SocialLinks";
 
 const cardStyle = "rounded-2xl border border-white/10 bg-surface-darker p-8";
 
@@ -40,19 +40,8 @@ export default function Home() {
               Software Engineer &middot; 10+ years building for the web
             </p>
 
-            <div className="mb-10 flex gap-5">
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="text-2xl transition-colors hover:text-primary-400"
-                >
-                  <social.icon />
-                </a>
-              ))}
+            <div className="mb-10">
+              <SocialLinks className="text-2xl" />
             </div>
 
             <div className="flex gap-4">
