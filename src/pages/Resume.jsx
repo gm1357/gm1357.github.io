@@ -26,7 +26,7 @@ function TimelineItem({ title, subtitle, period, bullets }) {
 
 export default function Resume() {
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16 animate-fade-in">
+    <div className="mx-auto max-w-3xl px-6 py-16">
       <div className="mb-12 flex flex-wrap items-center justify-between gap-4">
         <h1 className="text-4xl font-bold">Resume</h1>
         <div className="flex gap-2">

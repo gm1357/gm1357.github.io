@@ -92,7 +92,7 @@ export default function Portfolio() {
     filter === "All" ? repos : repos.filter((r) => r.language === filter);
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-16 animate-fade-in">
+    <div className="mx-auto max-w-5xl px-6 py-16">
       <h1 className="mb-8 text-4xl font-bold">Portfolio</h1>
       <p className="mb-8 opacity-80">
         A selection of featured work and open-source projects.
