@@ -25,15 +25,22 @@ export default function Navbar() {
         {/* Desktop links */}
         <ul className="hidden gap-6 md:flex">
           {links.map(({ to, label }) => (
-            <li key={to}>
+            <li key={to} className="relative">
               <Link
                 to={to}
-                className={`transition-colors hover:text-primary-400 ${
+                className={`relative z-10 rounded-full px-3 py-1 transition-colors ${
                   pathname === to
-                    ? "text-primary-400 font-medium"
-                    : "text-inherit"
+                    ? "text-white font-medium"
+                    : "text-inherit hover:text-primary-400"
                 }`}
               >
+                {pathname === to && (
+                  <motion.span
+                    layoutId="nav-active"
+                    className="absolute inset-0 rounded-full bg-white/10"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
+                )}
                 {label}
               </Link>
             </li>
@@ -58,9 +65,9 @@ export default function Navbar() {
               <Link
                 to={to}
                 onClick={() => setOpen(false)}
-                className={`block py-1 transition-colors hover:text-primary-400 ${
+                className={`block rounded-lg px-3 py-1 transition-colors hover:text-primary-400 ${
                   pathname === to
-                    ? "text-primary-400 font-medium"
+                    ? "text-white font-medium bg-white/10"
                     : "text-inherit"
                 }`}
               >
