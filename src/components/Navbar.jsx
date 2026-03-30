@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 
 const links = [
@@ -11,6 +12,8 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 300, damping: 30 });
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-surface-darker backdrop-blur-sm">
@@ -67,6 +70,10 @@ export default function Navbar() {
           ))}
         </ul>
       )}
+      <motion.div
+        className="h-0.5 origin-left bg-gradient-to-r from-accent-from to-accent-to"
+        style={{ scaleX }}
+      />
     </nav>
   );
 }
