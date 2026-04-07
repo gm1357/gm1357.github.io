@@ -30,6 +30,60 @@ export default function Home() {
   }
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const coarse = window.matchMedia("(hover: none) and (pointer: coarse)");
+    if (!coarse.matches) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduced.matches) return;
+
+    const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
+    let baseBeta = null;
+    let baseGamma = null;
+
+    const handleOrientation = (event) => {
+      const { beta, gamma } = event;
+      if (beta == null || gamma == null) return;
+      if (baseBeta == null) {
+        baseBeta = beta;
+        baseGamma = gamma;
+        return;
+      }
+      tiltX.set(clamp(-(beta - baseBeta), -15, 15));
+      tiltY.set(clamp(gamma - baseGamma, -15, 15));
+    };
+
+    const attach = () => {
+      window.addEventListener("deviceorientation", handleOrientation);
+    };
+
+    const needsPermission =
+      typeof DeviceOrientationEvent !== "undefined" &&
+      typeof DeviceOrientationEvent.requestPermission === "function";
+
+    let unlock;
+    if (needsPermission) {
+      unlock = () => {
+        window.removeEventListener("touchend", unlock);
+        DeviceOrientationEvent.requestPermission()
+          .then((state) => {
+            if (state === "granted") attach();
+          })
+          .catch(() => {});
+      };
+      window.addEventListener("touchend", unlock);
+    } else {
+      attach();
+    }
+
+    return () => {
+      window.removeEventListener("deviceorientation", handleOrientation);
+      if (unlock) window.removeEventListener("touchend", unlock);
+    };
+  }, [tiltX, tiltY]);
+
+  useEffect(() => {
     if (flipped) {
       backRef.current?.focus();
     } else {
