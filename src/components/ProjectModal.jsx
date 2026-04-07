@@ -30,7 +30,7 @@ export default function ProjectModal({ project, onClose }) {
           transition={{ duration: 0.2 }}
         >
           <motion.div
-            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-xl border border-white/10 bg-surface-darker p-6 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-xl border border-white/10 bg-surface-darker/85 backdrop-blur-md p-6 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
             initial={{ opacity: 0, y: 32, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
