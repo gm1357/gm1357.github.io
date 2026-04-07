@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import SocialLinks from "../components/SocialLinks";
 
-const cardStyle = "rounded-2xl border border-white/10 bg-surface-darker p-8";
+const cardStyle =
+  "rounded-2xl border border-white/10 bg-surface-darker/30 backdrop-blur-md shadow-xl shadow-black/30 p-8";
 
 export default function Home() {
   const [flipped, setFlipped] = useState(false);
@@ -112,7 +113,7 @@ export default function Home() {
               tabIndex={-1}
               aria-hidden={flipped}
               inert={flipped ? "" : undefined}
-              className={`backface-hidden absolute inset-0 flex flex-col items-center justify-center text-center outline-none ${cardStyle}`}
+              className={`backface-hidden [transform:rotateY(0deg)] absolute inset-0 flex flex-col items-center justify-center text-center outline-none ${cardStyle}`}
             >
               <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
                 <span className="bg-gradient-to-r from-accent-from to-accent-to bg-clip-text text-transparent">

@@ -4,10 +4,10 @@
   --color-primary-400: #60a5fa;
   --color-primary-500: #3b82f6;
   --color-primary-600: #2563eb;
-  --color-accent-from: #3b82f6;
-  --color-accent-to: #a855f7;
+  --color-accent-from: #295eb4;
+  --color-accent-to: #942df5;
   --color-surface-dark: #242424;
-  --color-surface-darker: #222222;
+  --color-surface-darker: #070b16;
   --color-text-dark: rgba(255, 255, 255, 0.87);
   --animate-fade-in: fade-in 0.5s ease-out;
 }
@@ -15,6 +15,7 @@
 @keyframes fade-in {
   from {
     opacity: 0;
+    color: #942df5;
     transform: translateY(10px);
   }
   to {
@@ -45,7 +46,18 @@ body {
   font-weight: 400;
   color-scheme: dark;
   color: var(--color-text-dark);
-  background-color: var(--color-surface-dark);
+  /* https://grabient.com/HQZgHAbANCwJwCYCsNgTHKwF07MAjAakuFiBJsAQAzHU01YAsYYLA7CsMxzUA?angle=180 */
+
+  background: linear-gradient(
+    180deg,
+    #070b16 0%,
+    #0c0f1f 20%,
+    #141026 40%,
+    #1d1330 60%,
+    #2a1a3d 80%,
+    #38234c 100%
+  );
+  background-attachment: fixed;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
