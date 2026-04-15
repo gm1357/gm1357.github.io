@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import SocialLinks from "../components/SocialLinks";
+import { useTranslation } from "../i18n";
 
 const cardStyle =
   "rounded-2xl border border-white/10 bg-surface-darker/30 backdrop-blur-md shadow-xl shadow-black/30 p-8";
@@ -10,6 +11,7 @@ export default function Home() {
   const [flipped, setFlipped] = useState(false);
   const frontRef = useRef(null);
   const backRef = useRef(null);
+  const { t } = useTranslation();
 
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);
@@ -121,7 +123,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="mb-8 max-w-lg text-lg opacity-80">
-                Software Engineer &middot; 10+ years building for the web
+                {t("home_subtitle")}
               </p>
 
               <div className="mb-10">
@@ -133,14 +135,14 @@ export default function Home() {
                   to="/resume"
                   className="rounded-full bg-gradient-to-r from-accent-from to-accent-to px-6 py-2.5 font-medium text-white transition-opacity hover:opacity-90"
                 >
-                  View my resume
+                  {t("home_view_resume")}
                 </Link>
                 <button
                   onClick={() => setFlipped(true)}
-                  aria-label="Flip card to show about section"
+                  aria-label={t("home_flip_to_about_aria")}
                   className="rounded-full border border-white/20 px-6 py-2.5 font-medium transition-colors hover:bg-white/10 cursor-pointer"
                 >
-                  About me &rarr;
+                  {t("home_about_me")} &rarr;
                 </button>
               </div>
             </div>
@@ -161,24 +163,15 @@ export default function Home() {
                 />
               </div>
               <div className="space-y-4 text-base leading-relaxed opacity-90">
-                <p>
-                  I&apos;m a Brazilian software engineer with 10+ years of
-                  experience in web development and a bachelor&apos;s degree in
-                  computer science from UNESP — Universidade Estadual Paulista.
-                </p>
-                <p>
-                  I&apos;m passionate about writing clean &amp; maintainable
-                  code, continuously improving my skills, and learning new
-                  technologies. I enjoy building products that make a difference
-                  and collaborating with talented teams.
-                </p>
+                <p>{t("home_about_p1")}</p>
+                <p>{t("home_about_p2")}</p>
               </div>
               <button
                 onClick={() => setFlipped(false)}
-                aria-label="Flip card back to hero section"
+                aria-label={t("home_flip_to_hero_aria")}
                 className="mt-6 rounded-full border border-white/20 px-6 py-2.5 font-medium transition-colors hover:bg-white/10 cursor-pointer"
               >
-                &larr; Flip back
+                &larr; {t("home_flip_back")}
               </button>
             </div>
           </div>

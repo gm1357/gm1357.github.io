@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { HiDownload } from "react-icons/hi";
-import { workExperience, education, skills } from "../data/resume";
+import { useTranslation, useLocalizedData } from "../i18n";
 
 const staggerContainer = {
   hidden: {},
@@ -36,10 +36,14 @@ function TimelineItem({ title, subtitle, period, bullets }) {
 }
 
 export default function Resume() {
+  const { t } = useTranslation();
+  const { resume } = useLocalizedData();
+  const { workExperience, education, skills } = resume;
+
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
       <div className="mb-12 flex flex-wrap items-center justify-between gap-4">
-        <h1 className="text-4xl font-bold">Resume</h1>
+        <h1 className="text-4xl font-bold">{t("resume_title")}</h1>
         <div className="flex gap-2">
           <a
             href="/docs/cv_en.pdf"
@@ -60,7 +64,7 @@ export default function Resume() {
 
       {/* Work Experience */}
       <section className="mb-14">
-        <h2 className="mb-6 text-2xl font-bold">Work Experience</h2>
+        <h2 className="mb-6 text-2xl font-bold">{t("resume_work_experience")}</h2>
         <motion.div variants={staggerContainer} initial="hidden" animate="show">
           {workExperience.map((job, i) => (
             <TimelineItem
@@ -76,7 +80,7 @@ export default function Resume() {
 
       {/* Education */}
       <section className="mb-14">
-        <h2 className="mb-6 text-2xl font-bold">Education</h2>
+        <h2 className="mb-6 text-2xl font-bold">{t("resume_education")}</h2>
         <motion.div variants={staggerContainer} initial="hidden" animate="show">
           {education.map((edu, i) => (
             <TimelineItem
@@ -91,7 +95,7 @@ export default function Resume() {
 
       {/* Skills */}
       <section>
-        <h2 className="mb-6 text-2xl font-bold">Skills</h2>
+        <h2 className="mb-6 text-2xl font-bold">{t("resume_skills")}</h2>
         <motion.div
           className="space-y-6"
           variants={staggerContainer}

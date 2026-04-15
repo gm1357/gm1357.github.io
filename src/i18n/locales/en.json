@@ -1,0 +1,37 @@
+{
+  "nav_home": "Home",
+  "nav_resume": "Resume",
+  "nav_portfolio": "Portfolio",
+
+  "home_subtitle": "Software Engineer · 10+ years building for the web",
+  "home_view_resume": "View my resume",
+  "home_about_me": "About me",
+  "home_flip_back": "Flip back",
+  "home_flip_to_about_aria": "Flip card to show about section",
+  "home_flip_to_hero_aria": "Flip card back to hero section",
+  "home_about_p1": "I'm a Brazilian software engineer with 10+ years of experience in web development and a bachelor's degree in computer science from UNESP — Universidade Estadual Paulista.",
+  "home_about_p2": "I'm passionate about writing clean & maintainable code, continuously improving my skills, and learning new technologies. I enjoy building products that make a difference and collaborating with talented teams.",
+
+  "resume_title": "Resume",
+  "resume_work_experience": "Work Experience",
+  "resume_education": "Education",
+  "resume_skills": "Skills",
+
+  "portfolio_title": "Portfolio",
+  "portfolio_subtitle": "A selection of featured work and open-source projects.",
+  "portfolio_featured": "Featured Projects",
+  "portfolio_github_repos": "GitHub Repositories",
+  "portfolio_know_more": "Know more",
+  "portfolio_retry": "Retry",
+  "portfolio_error": "Failed to load repos: ",
+  "portfolio_empty": "No projects found for \"{{filter}}\".",
+  "portfolio_visit_project": "Visit Project",
+  "portfolio_github_repo_aria": "GitHub Repository",
+
+  "modal_close_aria": "Close",
+
+  "footer_copyright": "© {{year}} Gabriel Machado",
+
+  "meta_title": "Gabriel Machado — Software Engineer",
+  "meta_description": "Gabriel Machado — Software engineer with 10+ years of experience building for the web."
+}
