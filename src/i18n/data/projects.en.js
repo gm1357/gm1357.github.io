@@ -4,7 +4,7 @@ const projects = [
     title: "React Chess",
     shortDescription: "A chess game made with React.",
     longDescription: `
-A fully interactive chess game built from scratch with React and TypeScript, created using Create React App. The application renders a responsive 8×8 board where two players can take turns moving pieces via a click-to-select, click-to-place interface. It implements the standard movement rules for all six piece types, including pawns' two-square opening move, knights jumping over pieces, and the queen reusing rook and bishop logic via composition. The game enforces turn alternation, validates every move against the rules, detects check and checkmate conditions, and prevents illegal moves that would leave your own king exposed. 
+A fully interactive chess game built from scratch with React and TypeScript, created using Create React App. The application renders a responsive 8×8 board where two players can take turns moving pieces via a click-to-select, click-to-place interface. It implements the standard movement rules for all six piece types, including pawns' two-square opening move, knights jumping over pieces, and the queen reusing rook and bishop logic via composition. The game enforces turn alternation, validates every move against the rules, detects check and checkmate conditions, and prevents illegal moves that would leave your own king exposed.
 
 The architecture follows a clean unidirectional data flow (App → Board → Tile → Piece) with a clear separation between rendering and game logic. Each piece type has a dedicated PieceController that implements a shared interface, encapsulating its movement rules alongside its component — a pattern that keeps the codebase modular and easy to extend. The Queen controller demonstrates the composite pattern by combining the Rook and Bishop controllers rather than duplicating logic. Board positions use standard algebraic notation (e.g. "e4"), with a utility layer that converts between string notation and numeric coordinates for move calculations.
 
@@ -20,7 +20,7 @@ On the UI side, the project uses react-transition-group for smooth turn and chec
     shortDescription:
       "A NestJS-based REST API for splitting expenses among group members.",
     longDescription: `
-Payment Splitter API is a backend service for splitting expenses between group members, similar to apps like Splitwise. It allows users to create groups, add members, log shared expenses, track individual balances, and settle debts. The API automatically calculates each member's fair share using equal splitting (with cent-level precision to handle remainders), and provides a smart settlement suggestion algorithm that minimizes the number of transactions needed to settle all debts within a group.                                                                                               
+Payment Splitter API is a backend service for splitting expenses between group members, similar to apps like Splitwise. It allows users to create groups, add members, log shared expenses, track individual balances, and settle debts. The API automatically calculates each member's fair share using equal splitting (with cent-level precision to handle remainders), and provides a smart settlement suggestion algorithm that minimizes the number of transactions needed to settle all debts within a group.
 
 The API is built with NestJS (Node.js/TypeScript) following a modular architecture, where each domain feature (users, groups, expenses, balances, settlements) is encapsulated in its own module with dedicated controllers, services, and DTOs. Data persistence is handled by Prisma ORM with PostgreSQL, using a well-normalized relational schema with models for Users, Groups, GroupMembers, Expenses, ExpenseSplits, and Settlements. Authentication is implemented with Passport.js using a local strategy for login and JWT tokens for protecting routes.
 
@@ -52,7 +52,7 @@ On the architectural side, the project demonstrates several Angular best practic
     shortDescription:
       "A full-stack bidding platform where users can browse item collections, place bids, and have bids accepted or rejected.",
     longDescription: `
-A full-stack web application that simulates a real-time bidding platform where users can create collections, place competitive bids, and manage the bid lifecycle through acceptance and rejection workflows. Built as a modern single-page application, it features infinite-scroll pagination, modal-based interactions, and a multi-user experience powered by a user selector.            
+A full-stack web application that simulates a real-time bidding platform where users can create collections, place competitive bids, and manage the bid lifecycle through acceptance and rejection workflows. Built as a modern single-page application, it features infinite-scroll pagination, modal-based interactions, and a multi-user experience powered by a user selector.
 
 The project is built on Next.js 16 with the App Router, React 19, and TypeScript in strict mode. The backend uses Next.js API routes following RESTful conventions, backed by PostgreSQL through Prisma ORM with the PrismaPg driver adapter. The frontend is styled with Tailwind CSS v4 and uses the Geist font family. Local development is containerized with Docker Compose for the database layer.
 

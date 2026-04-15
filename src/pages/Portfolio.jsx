@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaStar, FaCodeBranch, FaGithub } from "react-icons/fa";
-import projects from "../data/projects";
+import { useTranslation, useLocalizedData } from "../i18n";
 import ProjectModal from "../components/ProjectModal";
 
 const staggerContainer = {
@@ -47,6 +47,8 @@ export default function Portfolio() {
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
+  const { t } = useTranslation();
+  const { projects } = useLocalizedData();
 
   const fetchRepos = () => {
     setLoading(true);
@@ -108,15 +110,15 @@ export default function Portfolio() {
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-16">
-      <h1 className="mb-8 text-4xl font-bold">Portfolio</h1>
+      <h1 className="mb-8 text-4xl font-bold">{t("portfolio_title")}</h1>
       <p className="mb-8 opacity-80">
-        A selection of featured work and open-source projects.
+        {t("portfolio_subtitle")}
       </p>
 
       {/* Featured Projects */}
       {projects.length > 0 && (
         <section className="mb-12">
-          <h2 className="mb-6 text-2xl font-semibold">Featured Projects</h2>
+          <h2 className="mb-6 text-2xl font-semibold">{t("portfolio_featured")}</h2>
           <motion.div
             className="grid gap-4 sm:grid-cols-2"
             variants={staggerContainer}
@@ -148,15 +150,15 @@ export default function Portfolio() {
                       onClick={() => setSelectedProject(project)}
                       className="rounded-full border border-primary-400 px-3 py-1 text-sm text-primary-400 transition-colors hover:bg-primary-400/15 cursor-pointer"
                     >
-                      Know more
+                      {t("portfolio_know_more")}
                     </button>
                     {project.github && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="GitHub Repository"
-                        title="GitHub Repository"
+                        aria-label={t("portfolio_github_repo_aria")}
+                        title={t("portfolio_github_repo_aria")}
                         className="rounded-full px-3 py-1 text-sm text-primary-400 transition-colors hover:bg-primary-400/15 cursor-pointer w-10 h-10 flex items-center justify-center"
                       >
                         <FaGithub />
@@ -172,18 +174,18 @@ export default function Portfolio() {
 
       {/* GitHub Repositories */}
       {projects.length > 0 && (
-        <h2 className="mb-6 text-2xl font-semibold">GitHub Repositories</h2>
+        <h2 className="mb-6 text-2xl font-semibold">{t("portfolio_github_repos")}</h2>
       )}
 
       {/* Error state */}
       {error && (
         <div className="mb-8 rounded-lg border border-red-500/30 bg-red-500/10 p-4 text-center">
-          <p className="mb-2">Failed to load repos: {error}</p>
+          <p className="mb-2">{t("portfolio_error")}{error}</p>
           <button
             onClick={fetchRepos}
             className="rounded-full bg-primary-500 px-4 py-1.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
           >
-            Retry
+            {t("portfolio_retry")}
           </button>
         </div>
       )}
@@ -219,7 +221,7 @@ export default function Portfolio() {
 
           {filtered.length === 0 ? (
             <p className="py-12 text-center opacity-60">
-              No projects found for &ldquo;{filter}&rdquo;.
+              {t("portfolio_empty", { filter })}
             </p>
           ) : (
             <div className="grid gap-4 sm:grid-cols-2">

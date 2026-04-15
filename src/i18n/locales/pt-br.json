@@ -1,0 +1,37 @@
+{
+  "nav_home": "Início",
+  "nav_resume": "Currículo",
+  "nav_portfolio": "Portfólio",
+
+  "home_subtitle": "Engenheiro de Software · 10+ anos desenvolvendo para a web",
+  "home_view_resume": "Ver meu currículo",
+  "home_about_me": "Sobre mim",
+  "home_flip_back": "Voltar",
+  "home_flip_to_about_aria": "Virar cartão para mostrar a seção sobre mim",
+  "home_flip_to_hero_aria": "Virar cartão de volta para a seção principal",
+  "home_about_p1": "Sou um engenheiro de software brasileiro com mais de 10 anos de experiência em desenvolvimento web e bacharel em ciência da computação pela UNESP — Universidade Estadual Paulista.",
+  "home_about_p2": "Sou apaixonado por escrever código limpo e de fácil manutenção, melhorar continuamente minhas habilidades e aprender novas tecnologias. Gosto de construir produtos que fazem a diferença e colaborar com equipes talentosas.",
+
+  "resume_title": "Currículo",
+  "resume_work_experience": "Experiência Profissional",
+  "resume_education": "Formação Acadêmica",
+  "resume_skills": "Habilidades",
+
+  "portfolio_title": "Portfólio",
+  "portfolio_subtitle": "Uma seleção de trabalhos em destaque e projetos open-source.",
+  "portfolio_featured": "Projetos em Destaque",
+  "portfolio_github_repos": "Repositórios GitHub",
+  "portfolio_know_more": "Saiba mais",
+  "portfolio_retry": "Tentar novamente",
+  "portfolio_error": "Falha ao carregar repositórios: ",
+  "portfolio_empty": "Nenhum projeto encontrado para \"{{filter}}\".",
+  "portfolio_visit_project": "Visitar Projeto",
+  "portfolio_github_repo_aria": "Repositório GitHub",
+
+  "modal_close_aria": "Fechar",
+
+  "footer_copyright": "© {{year}} Gabriel Machado",
+
+  "meta_title": "Gabriel Machado — Engenheiro de Software",
+  "meta_description": "Gabriel Machado — Engenheiro de software com mais de 10 anos de experiência desenvolvendo para a web."
+}

@@ -2,18 +2,21 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
-
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/resume", label: "Resume" },
-  { to: "/portfolio", label: "Portfolio" },
-];
+import { useTranslation } from "../i18n";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 300, damping: 30 });
+  const { t } = useTranslation();
+
+  const links = [
+    { to: "/", label: t("nav_home") },
+    { to: "/resume", label: t("nav_resume") },
+    { to: "/portfolio", label: t("nav_portfolio") },
+  ];
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-surface-darker/60 backdrop-blur-md">
@@ -23,38 +26,44 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden gap-6 md:flex">
-          {links.map(({ to, label }) => (
-            <li key={to} className="relative">
-              <Link
-                to={to}
-                className={`relative z-10 rounded-full px-3 py-1 transition-colors ${
-                  pathname === to
-                    ? "text-white font-medium"
-                    : "text-inherit hover:text-primary-400"
-                }`}
-              >
-                {pathname === to && (
-                  <motion.span
-                    layoutId="nav-active"
-                    className="absolute inset-0 rounded-full bg-white/10"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                  />
-                )}
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden items-center gap-6 md:flex">
+          <ul className="flex gap-6">
+            {links.map(({ to, label }) => (
+              <li key={to} className="relative">
+                <Link
+                  to={to}
+                  className={`relative z-10 rounded-full px-3 py-1 transition-colors ${
+                    pathname === to
+                      ? "text-white font-medium"
+                      : "text-inherit hover:text-primary-400"
+                  }`}
+                >
+                  {pathname === to && (
+                    <motion.span
+                      layoutId="nav-active"
+                      className="absolute inset-0 rounded-full bg-white/10"
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
+                  )}
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <LanguageSwitcher />
+        </div>
 
         {/* Mobile toggle */}
-        <button
-          className="md:hidden"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <HiX size={24} /> : <HiMenu size={24} />}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <LanguageSwitcher />
+          <button
+            className="cursor-pointer"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <HiX size={24} /> : <HiMenu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

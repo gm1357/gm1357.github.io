@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "../i18n";
 
 export default function ProjectModal({ project, onClose }) {
+  const { t } = useTranslation();
+
   useEffect(() => {
     if (!project) return;
 
@@ -40,7 +43,7 @@ export default function ProjectModal({ project, onClose }) {
             <button
               onClick={onClose}
               className="absolute right-4 top-4 text-2xl leading-none opacity-60 transition-opacity hover:opacity-100"
-              aria-label="Close"
+              aria-label={t("modal_close_aria")}
             >
               &times;
             </button>
@@ -65,7 +68,7 @@ export default function ProjectModal({ project, onClose }) {
                 rel="noopener noreferrer"
                 className="inline-block rounded-full bg-primary-500 px-5 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
               >
-                Visit Project
+                {t("portfolio_visit_project")}
               </a>
             )}
           </motion.div>
