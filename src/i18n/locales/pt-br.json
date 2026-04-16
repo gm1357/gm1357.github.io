@@ -33,5 +33,10 @@
   "footer_copyright": "© {{year}} Gabriel Machado",
 
   "meta_title": "Gabriel Machado — Engenheiro de Software",
-  "meta_description": "Gabriel Machado — Engenheiro de software com mais de 10 anos de experiência desenvolvendo para a web."
+  "meta_description": "Gabriel Machado — Engenheiro de software com mais de 10 anos de experiência desenvolvendo para a web.",
+
+  "meta_resume_title": "Currículo — Gabriel Machado",
+  "meta_resume_description": "Experiência profissional, formação acadêmica e habilidades técnicas de Gabriel Machado, engenheiro de software com mais de 10 anos desenvolvendo para a web.",
+  "meta_portfolio_title": "Portfólio — Gabriel Machado",
+  "meta_portfolio_description": "Uma seleção de trabalhos em destaque e projetos open-source de Gabriel Machado."
 }

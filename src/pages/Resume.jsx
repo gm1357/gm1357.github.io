@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { HiDownload } from "react-icons/hi";
-import { useTranslation, useLocalizedData } from "../i18n";
+import { useTranslation, useLocalizedData, usePageMeta } from "../i18n";
 
 const staggerContainer = {
   hidden: {},
@@ -39,6 +39,7 @@ export default function Resume() {
   const { t } = useTranslation();
   const { resume } = useLocalizedData();
   const { workExperience, education, skills } = resume;
+  usePageMeta("meta_resume_title", "meta_resume_description");
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">

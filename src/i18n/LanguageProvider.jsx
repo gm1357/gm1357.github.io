@@ -19,10 +19,6 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     document.documentElement.lang = language === "pt-br" ? "pt-BR" : "en";
-    const t = translations[language];
-    document.title = t.meta_title;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", t.meta_description);
   }, [language]);
 
   const value = useMemo(
