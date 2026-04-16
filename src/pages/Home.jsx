@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import SocialLinks from "../components/SocialLinks";
-import { useTranslation } from "../i18n";
+import { useTranslation, usePageMeta } from "../i18n";
 
 const cardStyle =
   "rounded-2xl border border-white/10 bg-surface-darker/30 backdrop-blur-md shadow-xl shadow-black/30 p-8";
@@ -12,6 +12,7 @@ export default function Home() {
   const frontRef = useRef(null);
   const backRef = useRef(null);
   const { t } = useTranslation();
+  usePageMeta("meta_title", "meta_description");
 
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);

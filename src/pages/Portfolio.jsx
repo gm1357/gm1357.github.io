@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaStar, FaCodeBranch, FaGithub } from "react-icons/fa";
-import { useTranslation, useLocalizedData } from "../i18n";
+import { useTranslation, useLocalizedData, usePageMeta } from "../i18n";
 import ProjectModal from "../components/ProjectModal";
 
 const staggerContainer = {
@@ -49,6 +49,7 @@ export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState(null);
   const { t } = useTranslation();
   const { projects } = useLocalizedData();
+  usePageMeta("meta_portfolio_title", "meta_portfolio_description");
 
   const fetchRepos = () => {
     setLoading(true);

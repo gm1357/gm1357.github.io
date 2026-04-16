@@ -33,5 +33,9 @@
   "footer_copyright": "© {{year}} Gabriel Machado",
 
   "meta_title": "Gabriel Machado — Software Engineer",
-  "meta_description": "Gabriel Machado — Software engineer with 10+ years of experience building for the web."
+  "meta_description": "Gabriel Machado — Software engineer with 10+ years of experience building for the web.",
+  "meta_resume_title": "Resume — Gabriel Machado",
+  "meta_resume_description": "Work experience, education, and technical skills of Gabriel Machado, a software engineer with 10+ years building for the web.",
+  "meta_portfolio_title": "Portfolio — Gabriel Machado",
+  "meta_portfolio_description": "A selection of featured work and open-source projects by Gabriel Machado."
 }
