@@ -7,10 +7,31 @@ import { useTranslation, usePageMeta } from "../i18n";
 const cardStyle =
   "rounded-2xl border border-white/10 bg-surface-darker/30 backdrop-blur-md shadow-xl shadow-black/30 p-8";
 
+function shouldPromptForGyro() {
+  if (typeof window === "undefined") return false;
+  if (!window.matchMedia("(hover: none) and (pointer: coarse)").matches)
+    return false;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+    return false;
+
+  const needsPermission =
+    typeof DeviceOrientationEvent !== "undefined" &&
+    typeof DeviceOrientationEvent.requestPermission === "function";
+  if (!needsPermission) return false;
+
+  try {
+    return sessionStorage.getItem("gyroBannerDismissed") !== "1";
+  } catch {
+    return true;
+  }
+}
+
 export default function Home() {
   const [flipped, setFlipped] = useState(false);
+  const [showGyroBanner, setShowGyroBanner] = useState(shouldPromptForGyro);
   const frontRef = useRef(null);
   const backRef = useRef(null);
+  const orientationAttachRef = useRef(null);
   const { t } = useTranslation();
   usePageMeta("meta_title", "meta_description");
 
@@ -66,26 +87,35 @@ export default function Home() {
       typeof DeviceOrientationEvent !== "undefined" &&
       typeof DeviceOrientationEvent.requestPermission === "function";
 
-    let unlock;
     if (needsPermission) {
-      unlock = () => {
-        window.removeEventListener("touchend", unlock);
-        DeviceOrientationEvent.requestPermission()
-          .then((state) => {
-            if (state === "granted") attach();
-          })
-          .catch(() => {});
-      };
-      window.addEventListener("touchend", unlock);
+      orientationAttachRef.current = attach;
     } else {
       attach();
     }
 
     return () => {
       window.removeEventListener("deviceorientation", handleOrientation);
-      if (unlock) window.removeEventListener("touchend", unlock);
+      orientationAttachRef.current = null;
     };
   }, [tiltX, tiltY]);
+
+  function dismissGyroBanner() {
+    try {
+      sessionStorage.setItem("gyroBannerDismissed", "1");
+    } catch {
+      // storage may be unavailable (private mode)
+    }
+    setShowGyroBanner(false);
+  }
+
+  function handleEnableGyro() {
+    DeviceOrientationEvent.requestPermission()
+      .then((state) => {
+        if (state === "granted") orientationAttachRef.current?.();
+      })
+      .catch(() => {});
+    dismissGyroBanner();
+  }
 
   useEffect(() => {
     if (flipped) {
@@ -178,6 +208,30 @@ export default function Home() {
           </div>
         </motion.div>
       </div>
+
+      {showGyroBanner && (
+        <div
+          role="region"
+          aria-label={t("home_gyro_banner_aria")}
+          className="fixed inset-x-4 bottom-4 z-40 mx-auto flex max-w-md items-center justify-between gap-3 rounded-2xl border border-white/10 bg-surface-darker/80 px-4 py-3 shadow-xl shadow-black/30 backdrop-blur-md"
+        >
+          <p className="text-sm opacity-90">{t("home_gyro_prompt")}</p>
+          <div className="flex shrink-0 gap-2">
+            <button
+              onClick={dismissGyroBanner}
+              className="rounded-full border border-white/20 px-3 py-1.5 text-sm font-medium transition-colors hover:bg-white/10 cursor-pointer"
+            >
+              {t("home_gyro_dismiss")}
+            </button>
+            <button
+              onClick={handleEnableGyro}
+              className="rounded-full bg-gradient-to-r from-accent-from to-accent-to px-3 py-1.5 text-sm font-medium text-white transition-opacity hover:opacity-90 cursor-pointer"
+            >
+              {t("home_gyro_enable")}
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

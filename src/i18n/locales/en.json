@@ -11,6 +11,10 @@
   "home_flip_to_hero_aria": "Flip card back to hero section",
   "home_about_p1": "I'm a Brazilian software engineer with 10+ years of experience in web development and a bachelor's degree in computer science from UNESP — Universidade Estadual Paulista.",
   "home_about_p2": "I'm passionate about writing clean & maintainable code, continuously improving my skills, and learning new technologies. I enjoy building products that make a difference and collaborating with talented teams.",
+  "home_gyro_prompt": "Enable motion to tilt this card with your device?",
+  "home_gyro_enable": "Enable",
+  "home_gyro_dismiss": "Dismiss",
+  "home_gyro_banner_aria": "Motion permission prompt",
 
   "resume_title": "Resume",
   "resume_work_experience": "Work Experience",

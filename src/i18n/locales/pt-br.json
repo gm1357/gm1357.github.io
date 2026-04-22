@@ -11,6 +11,10 @@
   "home_flip_to_hero_aria": "Virar cartão de volta para a seção principal",
   "home_about_p1": "Sou um engenheiro de software brasileiro com mais de 10 anos de experiência em desenvolvimento web e bacharel em ciência da computação pela UNESP — Universidade Estadual Paulista.",
   "home_about_p2": "Sou apaixonado por escrever código limpo e de fácil manutenção, melhorar continuamente minhas habilidades e aprender novas tecnologias. Gosto de construir produtos que fazem a diferença e colaborar com equipes talentosas.",
+  "home_gyro_prompt": "Ativar movimento para inclinar o cartão com seu dispositivo?",
+  "home_gyro_enable": "Ativar",
+  "home_gyro_dismiss": "Dispensar",
+  "home_gyro_banner_aria": "Solicitação de permissão de movimento",
 
   "resume_title": "Currículo",
   "resume_work_experience": "Experiência Profissional",
