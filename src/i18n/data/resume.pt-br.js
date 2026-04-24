@@ -73,8 +73,14 @@ export const workExperience = [
 
 export const education = [
   {
+    degree: "MBA em Arquitetura de Software",
+    institution: "Full Cycle",
+    period: "2023 – 2025",
+  },
+  {
     degree: "Bacharelado em Ciência da Computação",
-    institution: "UNESP — Universidade Estadual Paulista, São José do Rio Preto",
+    institution:
+      "UNESP — Universidade Estadual Paulista, São José do Rio Preto",
     period: "2013 – 2018",
   },
 ];
