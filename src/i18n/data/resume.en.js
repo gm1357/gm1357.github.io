@@ -73,8 +73,14 @@ export const workExperience = [
 
 export const education = [
   {
+    degree: "MBA in Software Architecture",
+    institution: "Full Cycle",
+    period: "2023 – 2025",
+  },
+  {
     degree: "Bachelor's in Computer Science",
-    institution: "UNESP — Universidade Estadual Paulista, São José do Rio Preto",
+    institution:
+      "UNESP — Universidade Estadual Paulista, São José do Rio Preto",
     period: "2013 – 2018",
   },
 ];
@@ -85,7 +91,14 @@ export const skills = {
     "Java (Spring Boot)",
     "PHP (Laravel)",
   ],
-  Databases: ["MySQL", "PostgreSQL", "MongoDB", "BigQuery", "DynamoDB", "Redis"],
+  Databases: [
+    "MySQL",
+    "PostgreSQL",
+    "MongoDB",
+    "BigQuery",
+    "DynamoDB",
+    "Redis",
+  ],
   "DevOps & CI/CD": [
     "AWS (Lambda, EC2, S3, SQS)",
     "Google Cloud Platform",
