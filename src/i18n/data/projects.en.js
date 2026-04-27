@@ -82,6 +82,21 @@ Key technical highlights include proper interval and animation cleanup to preven
       "https://github.com/gm1357/dynamic-impact-map-frontend/raw/main/screen-example.png",
     github: "https://github.com/gm1357/dynamic-impact-map-backend",
   },
+  {
+    id: 6,
+    title: "Stock Operations Tax Calculator CLI",
+    shortDescription:
+      "A Node.js CLI tool that calculates capital gains taxes on a ledger of stock buy/sell operations.",
+    longDescription: `                                                                                                                                                        
+Stock Operations Tax Calculator CLI (sotcc) is a command-line tool that computes the capital gains tax owed on a sequence of stock trades according to a defined set of rules. The CLI accepts a ledger of operations as a JSON array — either piped from a file, typed line-by-line in a legacy raw mode, or entered through a guided interactive TUI that walks the user through selecting each operation's type, unit cost, and quantity — and outputs the tax owed for every operation in the ledger.
+
+The project is built on Node.js with React rendered to the terminal via Ink, with JSX compiled through Babel into the dist/ folder. Argument parsing is handled by meow, and the interactive UI is composed of ink components. The CLI auto-detects whether stdin is a TTY and dispatches to one of three React components — InteractiveApp (modern TUI), InteractiveLegacyApp (line-based stdin), or PipedApp (non-interactive) — so the same binary works equally well for human exploration and shell pipelines (cat ledgers.txt | sotcc > out.txt). The package exposes a sotcc bin entry, making it installable globally via npm link.
+
+The codebase is organized around a clean separation between the UI layer (src/ui) and the pure domain logic (src/domain), with a small math utility module for weighted-average calculations. The core tax engine maintains three pieces of state as it walks the ledger: a running weighted-average purchase price (recomputed on every buy), the current stock quantity, and an accumulated loss balance. Sells below the average price contribute to the loss pool; profitable sells over the $20k threshold are taxed only on the profit remaining after the loss pool absorbs as much as it can. Insufficient-stock sells produce a structured error in the result rather than throwing.
+  `,
+    coverImage: "/images/sotcc.png",
+    github: "https://github.com/gm1357/stock-operations-tax-calculator-cli",
+  },
 ];
 
 export default projects;

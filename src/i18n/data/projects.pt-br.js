@@ -82,6 +82,21 @@ Destaques técnicos incluem limpeza adequada de intervalos e animações para pr
       "https://github.com/gm1357/dynamic-impact-map-frontend/raw/main/screen-example.png",
     github: "https://github.com/gm1357/dynamic-impact-map-backend",
   },
+  {
+    id: 6,
+    title: "Stock Operations Tax Calculator CLI",
+    shortDescription:
+      "Uma ferramenta CLI em Node.js que calcula impostos sobre ganhos de capital em um registro de operações de compra/venda de ações.",
+    longDescription: `
+Stock Operations Tax Calculator CLI (sotcc) é uma ferramenta de linha de comando que calcula o imposto sobre ganhos de capital devido em uma sequência de negociações de ações de acordo com um conjunto definido de regras. A CLI aceita um registro de operações como um array JSON — seja recebido via pipe de um arquivo, digitado linha por linha em um modo raw legado, ou inserido através de uma TUI interativa guiada que conduz o usuário pela seleção do tipo, custo unitário e quantidade de cada operação — e exibe o imposto devido para cada operação no registro.
+
+O projeto é construído com Node.js usando React renderizado para o terminal através do Ink, com JSX compilado pelo Babel para a pasta dist/. O parsing de argumentos é feito pelo meow, e a UI interativa é composta por componentes do ink. A CLI detecta automaticamente se o stdin é um TTY e despacha para um de três componentes React — InteractiveApp (TUI moderna), InteractiveLegacyApp (stdin baseado em linhas) ou PipedApp (não interativo) — de modo que o mesmo binário funciona igualmente bem para exploração humana e pipelines de shell (cat ledgers.txt | sotcc > out.txt). O pacote expõe uma entrada bin sotcc, tornando-o instalável globalmente via npm link.
+
+O código é organizado em torno de uma separação limpa entre a camada de UI (src/ui) e a lógica de domínio pura (src/domain), com um pequeno módulo utilitário de matemática para cálculos de média ponderada. O motor central de impostos mantém três peças de estado conforme percorre o registro: um preço médio ponderado de compra corrente (recalculado a cada compra), a quantidade atual de ações e um saldo acumulado de prejuízos. Vendas abaixo do preço médio contribuem para o pool de prejuízos; vendas lucrativas acima do limite de $20k são tributadas apenas sobre o lucro restante após o pool de prejuízos absorver o quanto puder. Vendas com estoque insuficiente produzem um erro estruturado no resultado em vez de lançar uma exceção.
+  `,
+    coverImage: "/images/sotcc.png",
+    github: "https://github.com/gm1357/stock-operations-tax-calculator-cli",
+  },
 ];
 
 export default projects;
