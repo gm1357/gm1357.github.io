@@ -4,7 +4,7 @@ export const workExperience = [
     company: "Pray.com",
     period: "Novembro de 2024 – Presente",
     bullets: [
-      "Construí uma plataforma de gestão de conteúdo com TypeScript e React, capacitando líderes religiosos a criar, gerenciar e distribuir conteúdo diversificado para milhões de usuários.",
+      "Construí uma plataforma de gestão de conteúdo com Node, TypeScript e React, capacitando líderes religiosos a criar, gerenciar e distribuir conteúdo diversificado para milhões de usuários.",
       "Integrei funcionalidades com IA, incluindo parsing de ebooks e geração automatizada de áudio, reduzindo significativamente o tempo de criação de conteúdo.",
       "Projetei e entreguei uma plataforma de cobrança baseada em uso, desbloqueando uma nova fonte de receita e possibilitando monetização granular em todo o conjunto de ferramentas.",
       "Implementei componentes reutilizáveis de editor rich-text com suporte a markdown e versionamento, acelerando a entrega de funcionalidades em toda a plataforma.",
@@ -18,7 +18,8 @@ export const workExperience = [
     bullets: [
       "Liderei a iniciativa dos sistemas principais de monetização usando Node, Nest.js e TypeScript, impulsionando diretamente o crescimento de receita da empresa.",
       "Projetei e entreguei um sistema de gamificação com pagamentos baseados em bitcoin, aumentando o engajamento e retenção de usuários em um produto principal.",
-      "Otimizei performance de queries SQL e alocação de recursos Kubernetes, reduzindo tempos de resposta de API e custos de infraestrutura em nuvem.",
+      "Implementei um pipeline de dados com BigQuery para suportar análises em tempo real, permitindo a tomada de decisões baseada em dados em toda a organização.",
+      "Otimizei performance de queries PostgreSQL e MySQL, e alocação de recursos Kubernetes, reduzindo tempos de resposta de API e custos de infraestrutura em nuvem.",
       "Refatorei codebases legados em PHP e Scala, melhorando a manutenibilidade e reduzindo o tempo de resolução de bugs.",
       "Entreguei funcionalidades frontend com Vue para suportar novos fluxos de monetização e interfaces de usuário.",
     ],
