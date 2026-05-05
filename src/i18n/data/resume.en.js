@@ -4,7 +4,7 @@ export const workExperience = [
     company: "Pray.com",
     period: "November 2024 – Present",
     bullets: [
-      "Built a content management platform with TypeScript and React, empowering religious leaders to create, manage, and distribute diverse content to millions of users.",
+      "Built a content management platform with Node, TypeScript and React, empowering religious leaders to create, manage, and distribute diverse content to millions of users.",
       "Integrated AI-powered features including ebook parsing and automated audio generation, significantly reducing content creation time for creators.",
       "Designed and delivered a usage-based billing platform, unlocking a new revenue stream and enabling granular monetization across the full toolset.",
       "Implemented reusable rich-text editor components with markdown support and versioning, accelerating feature delivery across the platform.",
@@ -18,7 +18,8 @@ export const workExperience = [
     bullets: [
       "Led the core monetization systems initiative using Node, Nest.js and TypeScript, directly driving company revenue growth.",
       "Designed and shipped a gamification system with bitcoin-based payments, boosting user engagement and retention for a core product.",
-      "Optimized SQL query performance and Kubernetes resource allocation, reducing API response times and cutting cloud infrastructure costs.",
+      "Implemented a data pipeline with BigQuery to support real-time analytics, enabling data-driven decision making across the organization.",
+      "Optimized PostgreSQL and MySQL query performance and Kubernetes resource allocation, reducing API response times and cutting cloud infrastructure costs.",
       "Refactored legacy codebases in PHP and Scala, improving maintainability and reducing bug resolution time.",
       "Delivered frontend features with Vue to support new monetization and user-facing flows.",
     ],
