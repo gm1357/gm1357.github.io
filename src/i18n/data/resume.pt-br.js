@@ -1,8 +1,18 @@
 export const workExperience = [
   {
     title: "Desenvolvedor Fullstack Sênior",
+    company: "JetBridge",
+    period: "Junho de 2026 – Presente",
+    bullets: [
+      "Construindo uma plataforma com IA onde os usuários descrevem uma aplicação em um chat e a recebem gerada, com preview ao vivo e publicada, atuando de ponta a ponta com Next.js, React, Node e TypeScript em infraestrutura serverless na AWS.",
+      "Criei uma ferramenta de edição visual que permite aos usuários apontar e clicar em elementos do preview ao vivo para indicar à IA exatamente o que mudar, tornando o construtor de aplicações mais rápido e intuitivo para pessoas não técnicas.",
+      "Entreguei funcionalidades de colaboração em equipe, incluindo compartilhamento de projetos, convites e histórico de chat compartilhado em tempo real, permitindo que várias pessoas trabalhem no mesmo projeto de forma sincronizada.",
+    ],
+  },
+  {
+    title: "Desenvolvedor Fullstack Sênior",
     company: "Pray.com",
-    period: "Novembro de 2024 – Presente",
+    period: "Novembro de 2024 – Março de 2026",
     bullets: [
       "Construí uma plataforma de gestão de conteúdo com Node, TypeScript e React, capacitando líderes religiosos a criar, gerenciar e distribuir conteúdo diversificado para milhões de usuários.",
       "Integrei funcionalidades com IA, incluindo parsing de ebooks e geração automatizada de áudio, reduzindo significativamente o tempo de criação de conteúdo.",
