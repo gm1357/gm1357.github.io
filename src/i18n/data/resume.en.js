@@ -4,9 +4,10 @@ export const workExperience = [
     company: "JetBridge",
     period: "June 2026 – Present",
     bullets: [
-      "Building an AI-powered platform where users describe an application in a chat and get it generated, previewed live and published, working end-to-end with Next.js, React, Node and TypeScript on AWS serverless infrastructure.",
+      "Building an AI-powered platform where users describe an application in a chat and get it generated, previewed live and published, working end-to-end with Next.js, React, Node and TypeScript on AWS infrastructure.",
       "Created a visual editing tool that lets users point and click elements in the live preview to tell the AI exactly what to change, making the app builder faster and more intuitive for non-technical users.",
       "Delivered team collaboration features, including project sharing, invites and a real-time shared chat history, allowing multiple people to work on the same project and stay in sync.",
+      "Worked through SOC2 architecture issues using SST (IaC) to make the system more compliant by improving versioning, encryption and observability of multiple AWS services."
     ],
   },
   {
