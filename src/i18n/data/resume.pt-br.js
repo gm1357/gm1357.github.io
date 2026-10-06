@@ -4,9 +4,10 @@ export const workExperience = [
     company: "JetBridge",
     period: "Junho de 2026 – Presente",
     bullets: [
-      "Construindo uma plataforma com IA onde os usuários descrevem uma aplicação em um chat e a recebem gerada, com preview ao vivo e publicada, atuando de ponta a ponta com Next.js, React, Node e TypeScript em infraestrutura serverless na AWS.",
+      "Construindo uma plataforma com IA onde os usuários descrevem uma aplicação em um chat e a recebem gerada, com preview ao vivo e publicada, atuando de ponta a ponta com Next.js, React, Node e TypeScript em infraestrutura na AWS.",
       "Criei uma ferramenta de edição visual que permite aos usuários apontar e clicar em elementos do preview ao vivo para indicar à IA exatamente o que mudar, tornando o construtor de aplicações mais rápido e intuitivo para pessoas não técnicas.",
       "Entreguei funcionalidades de colaboração em equipe, incluindo compartilhamento de projetos, convites e histórico de chat compartilhado em tempo real, permitindo que várias pessoas trabalhem no mesmo projeto de forma sincronizada.",
+      "Trabalhei na resolução de questões de arquitetura relacionadas à SOC2 usando SST (IaC) para tornar o sistema mais aderente às normas, aprimorando o versionamento, a criptografia e a observabilidade de diversos serviços da AWS."
     ],
   },
   {
